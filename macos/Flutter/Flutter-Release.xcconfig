@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 #include "ephemeral/Flutter-Generated.xcconfig"
+=======
+#include "ephemeral/Flutter-Generated.xcconfig"
+>>>>>>> 29879fcc7c434736ac46d019c8f65f3daa525093

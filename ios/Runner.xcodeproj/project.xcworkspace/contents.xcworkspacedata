@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
@@ -5,3 +6,12 @@
       location = "self:">
    </FileRef>
 </Workspace>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "self:">
+   </FileRef>
+</Workspace>
+>>>>>>> 29879fcc7c434736ac46d019c8f65f3daa525093
