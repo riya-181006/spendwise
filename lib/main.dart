@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -20,6 +19,8 @@ class SpendWiseApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const Color tealSeed = Color(0xFF0F7A80);
+
     return MaterialApp(
       title: 'SpendWise',
 
@@ -29,8 +30,41 @@ class SpendWiseApp extends StatelessWidget {
         useMaterial3: true,
 
         colorScheme: ColorScheme.fromSeed(
-          seedColor:
-          const Color(0xFFD95C8A),
+          seedColor: tealSeed,
+        ),
+
+        scaffoldBackgroundColor: const Color(0xFFF1FBF9),
+
+        appBarTheme: const AppBarTheme(
+          backgroundColor: tealSeed,
+          foregroundColor: Colors.white,
+          elevation: 0,
+          centerTitle: true,
+        ),
+
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: Colors.white,
+          selectedItemColor: tealSeed,
+          unselectedItemColor: Colors.grey.shade500,
+          showUnselectedLabels: true,
+        ),
+
+        cardTheme: CardThemeData(
+          color: Colors.white,
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+          ),
+        ),
+
+        filledButtonTheme: FilledButtonThemeData(
+          style: FilledButton.styleFrom(
+            backgroundColor: tealSeed,
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
         ),
       ),
 
@@ -305,54 +339,4 @@ class _SpendWiseHomeState
       ),
     );
   }
-=======
-import 'package:flutter/material.dart';
-import 'models/expense.dart';
-import 'screens/expense_screen.dart';
-
-void main() {
-  runApp(const SpendWiseApp());
-}
-
-class SpendWiseApp extends StatefulWidget {
-  const SpendWiseApp({super.key});
-
-  @override
-  State<SpendWiseApp> createState() => _SpendWiseAppState();
-}
-
-class _SpendWiseAppState extends State<SpendWiseApp> {
-  final List<Expense> _expenses = [];
-
-  void _addExpense(Expense expense) {
-    setState(() {
-      _expenses.add(expense);
-    });
-  }
-
-  void _deleteExpense(Expense expense) {
-    setState(() {
-      _expenses.remove(expense);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'SpendWise',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-        ),
-      ),
-      home: ExpenseScreen(
-        expenses: _expenses,
-        onAddExpense: _addExpense,
-        onDeleteExpense: _deleteExpense,
-      ),
-    );
-  }
->>>>>>> 29879fcc7c434736ac46d019c8f65f3daa525093
 }

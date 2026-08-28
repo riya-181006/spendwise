@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 enum ExpenseCategory {
   food,
   transport,
@@ -104,22 +103,3 @@ on ExpenseCategory {
         return 'Other';
     }
   }}
-=======
-enum ExpenseCategory { food, travel, bills, shopping, other }
-
-class Expense {
-  final String id;
-  final String title;
-  final double amount;
-  final ExpenseCategory category;
-  final DateTime date;
-
-  Expense({
-    required this.id,
-    required this.title,
-    required this.amount,
-    required this.category,
-    required this.date,
-  });
-}
->>>>>>> 29879fcc7c434736ac46d019c8f65f3daa525093

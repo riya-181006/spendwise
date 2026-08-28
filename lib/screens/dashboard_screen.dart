@@ -16,6 +16,10 @@ class DashboardScreen
   final List<Expense> expenses;
   final List<Todo> todos;
 
+  static const Color _tealDark = Color(0xFF042B30);
+  static const Color _tealMid = Color(0xFF0F7A80);
+  static const Color _tealLight = Color(0xFF17A398);
+
   @override
   Widget build(BuildContext context) {
     final DateTime now = DateTime.now();
@@ -79,58 +83,61 @@ class DashboardScreen
             .length;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dashboard'),
-      ),
-
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-
-        children: [
-          DashboardMetricCard(
-            label: 'Total Spent',
-
-            value:
-            '₹${totalSpent.toStringAsFixed(2)}',
-
-            icon: Icons
-                .account_balance_wallet_outlined,
-
-            color: Colors.teal,
+      backgroundColor: const Color(0xFFF1FBF9),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            pinned: true,
+            expandedHeight: 100,
+            backgroundColor: _tealMid,
+            foregroundColor: Colors.white,
+            flexibleSpace: FlexibleSpaceBar(
+              title: const Text('Dashboard'),
+              background: Container(
+                decoration: const BoxDecoration(
+                  gradient: RadialGradient(
+                    center: Alignment(-0.6, -1),
+                    radius: 1.4,
+                    colors: [_tealLight, _tealMid, _tealDark],
+                    stops: [0.0, 0.5, 1.0],
+                  ),
+                ),
+              ),
+            ),
           ),
-
-          DashboardMetricCard(
-            label: "Today's Spending",
-
-            value:
-            '₹${todaySpent.toStringAsFixed(2)}',
-
-            icon: Icons.today_outlined,
-
-            color: Colors.blue,
-          ),
-
-          DashboardMetricCard(
-            label: 'Tasks Completed',
-
-            value:
-            '$completedTasks / ${todos.length}',
-
-            icon:
-            Icons.check_circle_outline,
-
-            color: Colors.green,
-          ),
-
-          DashboardMetricCard(
-            label: 'Tasks Added Today',
-
-            value: '$todayTasks',
-
-            icon: Icons
-                .playlist_add_check_outlined,
-
-            color: Colors.orange,
+          SliverPadding(
+            padding: const EdgeInsets.all(16),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate([
+                DashboardMetricCard(
+                  label: 'Total Spent',
+                  value: '₹${totalSpent.toStringAsFixed(2)}',
+                  icon: Icons.account_balance_wallet_outlined,
+                  color: _tealMid,
+                ),
+                const SizedBox(height: 12),
+                DashboardMetricCard(
+                  label: "Today's Spending",
+                  value: '₹${todaySpent.toStringAsFixed(2)}',
+                  icon: Icons.today_outlined,
+                  color: _tealLight,
+                ),
+                const SizedBox(height: 12),
+                DashboardMetricCard(
+                  label: 'Tasks Completed',
+                  value: '$completedTasks / ${todos.length}',
+                  icon: Icons.check_circle_outline,
+                  color: _tealDark,
+                ),
+                const SizedBox(height: 12),
+                DashboardMetricCard(
+                  label: 'Tasks Added Today',
+                  value: '$todayTasks',
+                  icon: Icons.playlist_add_check_outlined,
+                  color: const Color(0xFF5FB8AE),
+                ),
+              ]),
+            ),
           ),
         ],
       ),
